@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import classes from './App.css'
 import Person from './Person/Person'
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 
 class App extends Component {
   state = {
@@ -29,7 +30,6 @@ class App extends Component {
     const person = {
       ...this.state.persons[personIndex]
     }
-    // or...
     // const person = Object.assign({}, this.state.persons[personIndex])
 
     person.name = event.target.value
@@ -54,12 +54,13 @@ class App extends Component {
       persons = (
         <div>
           {this.state.persons.map((person, index) => {
-            return <Person
-              click={() => this.deletePersonHandler(index)}
-              name={person.name}
-              age={person.age}
-              key={person.id}
-              changed={(event) => this.nameChangedHandler(event, person.id)} />
+            return <ErrorBoundary key={person.id}>
+              <Person
+                click={() => this.deletePersonHandler(index)}
+                name={person.name}
+                age={person.age}
+                changed={(event) => this.nameChangedHandler(event, person.id)} />
+            </ ErrorBoundary>
           })}
         </div>
       );
@@ -79,7 +80,7 @@ class App extends Component {
         <div className={classes.App}>
           <h1>Hi, I'm a React App</h1>
           <p className={assignedClasses.join(' ')}>This is really working!</p>
-          <button class={btnClass} onClick={this.togglePersonsHandler}>
+          <button className={btnClass} onClick={this.togglePersonsHandler}>
             Toggle Persons
           </button>
           {persons}
