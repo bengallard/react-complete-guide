@@ -28,6 +28,6 @@
   background-color: red;
 }
 
-Button.Red.button:hover {
+.App Button.Red:hover {
   background-color: salmon;
 }
