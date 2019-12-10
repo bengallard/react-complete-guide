@@ -6,6 +6,25 @@ import Persons from '../components/Persons/Persons'
 
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    console.log('[App.js] constructor')
+  }
+
+static getDerivedStateFromProps(props, state) {
+  console.log('[App.js] getDerivedStateFromProps', props)
+  return state
+}
+
+// Will be removed in future versions
+componentWillMount() {
+  console.log('[App.js] componentWillMount');
+}
+
+componentDidMount() {
+  console.log('[App.js] componentDidMount');
+}
+
   state = {
     persons: [
       { id: 'adfg23', name: 'Max', age: 28 },
@@ -42,14 +61,13 @@ class App extends Component {
   }
 
   togglePersonsHandler = () => {
-    console.log('toggle persons');
-    const doesShow = this.state.showPersons;
-    this.setState({showPersons: !doesShow});
+    const doesShow = this.state.showPersons
+    this.setState({showPersons: !doesShow})
   }
 
   render() {
+    console.log('[App.js] render()')
     let persons = null
-    let btnClass = ''
 
     if ( this.state.showPersons ) {
       persons = <Persons 
