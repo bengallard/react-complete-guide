@@ -25,6 +25,15 @@ componentDidMount() {
   console.log('[App.js] componentDidMount');
 }
 
+shouldComponentUpdate(nextProps, nextState) {
+  console.log('[App.js] shouldComponentUpdate')
+  return true
+}
+
+componentDidUpdate() {
+  console.log('[App.js] componentDidUpdate')
+}
+
   state = {
     persons: [
       { id: 'adfg23', name: 'Max', age: 28 },
