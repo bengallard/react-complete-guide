@@ -17,9 +17,9 @@ static getDerivedStateFromProps(props, state) {
 }
 
 // Will be removed in future versions
-componentWillMount() {
-  console.log('[App.js] componentWillMount');
-}
+// componentWillMount() {
+//   console.log('[App.js] componentWillMount');
+// }
 
 componentDidMount() {
   console.log('[App.js] componentDidMount');
