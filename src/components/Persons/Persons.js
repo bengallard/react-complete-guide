@@ -12,6 +12,7 @@ class Persons extends PureComponent {
     //     console.log('[Persons] componentWillRecieveProps', props)
     // }
 
+    // Use PureComponent instead of the following:
     // shouldComponentUpdate(nextProps, nextState) {
     //     console.log('[Persons.js] shouldComponentUpdate')
     //     return (
